@@ -18,6 +18,7 @@ set(CXX_FLAGS
  # -DVALGRIND
  -DCHECK_PTHREAD_RETURN_VALUE
  -D_FILE_OFFSET_BITS=64
+ -DMUDUO_STD_STRING
  -Wall
  -Wextra
  -Werror
@@ -30,6 +31,7 @@ set(CXX_FLAGS
  -Wwrite-strings
  -march=native
  # -MMD
+ -isystem /opt/boost/include
  -std=c++11
  -rdynamic
  )
@@ -49,6 +51,8 @@ set(CMAKE_CXX_FLAGS_DEBUG "-O0")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
+
+set(Boost_INCLUDE_DIR "/opt/boost/include")
 
 find_package(Boost REQUIRED)
 find_package(Protobuf)
